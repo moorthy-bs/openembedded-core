@@ -107,4 +107,17 @@ python __anonymous() {
 }
 ALTERNATIVE_PRIORITY = "100"
 
+NETTOOLS_PACKAGES = "${PN}-mii-tool"
+
+PACKAGE_BEFORE_PN = "${NETTOOLS_PACKAGES}"
+RDEPENDS_${PN} += "${NETTOOLS_PACKAGES}"
+
+FILES_${PN}-mii-tool = "${base_sbindir}/mii-tool"
+
+ALTERNATIVE_${PN}_remove = "mii-tool"
+
+ALTERNATIVE_${PN}-mii-tool = "mii-tool"
+ALTERNATIVE_TARGET[mii-tool] = "${base_sbindir}/mii-tool"
+ALTERNATIVE_LINK_NAME[mii-tool] = "${base_sbindir}/mii-tool"
+
 BBCLASSEXTEND = "native nativesdk"
